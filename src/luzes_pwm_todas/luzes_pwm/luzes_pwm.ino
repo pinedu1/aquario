@@ -27,15 +27,15 @@ void setup() {
 void loop() {
 }
 void relampago() {
-  int flashCount = random (1, 25);        // Min. and max. number of flashes each loop
-  int flashBrightnessMin =  1;           // LED flash min. brightness (0-255)
-  int flashBrightnessMax =  255;          // LED flash max. brightness (0-255)
+  int flashCount = random (1, 25);             // Min. and max. number of flashes each loop
+  int flashBrightnessMin =  random (1, 5);                 // LED flash min. brightness (0-255)
+  int flashBrightnessMax =  random (150, 250); // LED flash max. brightness (0-255)
 
-  int flashDurationMin = 1;               // Min. duration of each seperate flash
-  int flashDurationMax = 150;              // Max. duration of each seperate flash
+  int flashDurationMin = 1;                    // Min. duration of each seperate flash
+  int flashDurationMax = random (50, 150);     // Max. duration of each seperate flash
 
-  int nextFlashDelayMin = 1;              // Min, delay between each flash and the next
-  int nextFlashDelayMax = 150;            // Max, delay between each flash and the next
+  int nextFlashDelayMin = random (1, 5);                   // Min, delay between each flash and the next
+  int nextFlashDelayMax = random (50, 150);    // Max, delay between each flash and the next
 
   for ( int flash = 0 ; flash <= flashCount; flash += 1 ) { // Flashing LED strip in a loop, random count
     ajusta_brilho( random ( flashBrightnessMin, flashBrightnessMax ) ); // Turn LED strip on, random brightness
@@ -46,12 +46,12 @@ void relampago() {
     delay( random( nextFlashDelayMin, nextFlashDelayMax) ); // Random delay before next flash
   }
 }
-void piscar() {
-  for ( int i = 0; i < 5; i++ ) {
+void piscar( int numRaios, int delayLOW, int delayHIGH ) {
+  for ( int i = 0; i < numRaios; i++ ) {
     apaga_todas();
-    delay( 100 );
+    delay( delayLOW );
     acende_todas();
-    delay( 100 );
+    delay( delayHIGH );
   }
 }
 void amanhecer() {
