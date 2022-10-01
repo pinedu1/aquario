@@ -20,16 +20,21 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   Timer1.initialize(1000000);
   Timer1.attachInterrupt(chooseLed);  //clear out all the registers
-  //rtc.initClock();
+  rtc.initClock();
+rtc.clearStatus();
   //set a time to start with.
   //day, weekday, month, century, year
-  //rtc.setDate(21, 3, 9, 20, 22);
+  //rtc.setDate(24, 7, 9, 20, 22);
   //hr, min, sec
-  //rtc.setTime(21, 27, 0);
+  //rtc.setTime(17, 27, 0);
+  rtc.setDate(14, 6, 3, 1, 10);
+  //hr, min, sec
+  rtc.setTime(1, 15, 0);
+  
 }
                                                                                 
 void loop() {
-/*
+
   Serial.print("Time:");
   //Serial.print(rtc.formatTime(RTCC_TIME_HM));
   Serial.print(rtc.formatTime());
@@ -37,10 +42,10 @@ void loop() {
 
   Serial.print("\t Date:");
   //Serial.println(rtc.formatDate(RTCC_DATE_ASIA));
-  Serial.println(rtc.formatDate(RTCC_DATE_WORLD));
+  Serial.println(rtc.formatDate());
 
   
   delay(1000);
-*/    
+
 }
   
